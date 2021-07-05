@@ -1,3 +1,5 @@
+@media (min-width: 768px) {
+
 .App {
   /*text-align: center;*/
   display: flex;
@@ -90,5 +92,10 @@ li {
 
 p {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
+}
+
+p1 {
+  font-size: 15px;
+}
 }

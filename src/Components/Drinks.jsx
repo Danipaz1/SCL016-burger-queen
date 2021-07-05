@@ -18,14 +18,23 @@ const Drinks = () => {
 
     let drinksFood = food.filter(item => item.type === "Bebidas")
 
+    function drinkBtnFood() {
+        console.log('click')
+    }
+
     return ( 
         <div>
             <ul>
                 {
                 drinksFood.map((item,i)=> (
                        <li key={i}> 
+                       <button className = "drinks" onClick = {() => drinkBtnFood()}>
                         {<img src = {item.images} style={{height:200, width: 200}}/>}
-                        <p>{item.name}</p>
+                        <p><b>{item.name}</b></p>
+                        <p1><i>{item.description}</i></p1>
+                        <p>${item.price}</p>
+                        
+                        </button>
                     </li>  
                 ))
                 }    

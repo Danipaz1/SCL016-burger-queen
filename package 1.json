@@ -1,18 +1,14 @@
 {
-  "name": "burger-queen-tmp",
+  "name": "ls",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "bootstrap": "^5.0.2",
-    "bootswatch": "^5.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
-    "shortid": "^2.2.16",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -38,5 +34,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "* [1. Preámbulo](#1-preámbulo)\r * [2. Resumen del proyecto](#2-resumen-del-proyecto)\r * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r * [4. Consideraciones generales](#4-consideraciones-generales)\r * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)\r * [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "}"
+  },
+  "author": "",
+  "license": "ISC"
 }

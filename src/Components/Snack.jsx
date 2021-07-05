@@ -17,7 +17,10 @@ const Snack = () => {
 
 
     let snackFood = food.filter(item => item.type === "Acompañamiento")
-  
+
+    function snackBtnFood() {   
+        console.log('click')
+    }
 
     return ( 
         <div>
@@ -25,18 +28,23 @@ const Snack = () => {
                 {
                 snackFood.map((item,i)=> (
                        <li key={i}> 
+                       <button className = "snacks" style={{height:400, width: 300}} onClick = {() => snackBtnFood()}>
                         {<img src = {item.images} style={{height:200, width: 250}}/>}
-                        <p>{item.name}</p>
+                        <p><b>{item.name}</b></p>
+                        <p1><i>{item.description}</i></p1>
+                        <p>${item.price}</p>
+                        </button>
                     </li>  
                 ))
-                }    
-
-                       
+             
+                }
                 
             </ul>
 
         </div>
     )
 }
+
+
 
 export default Snack
