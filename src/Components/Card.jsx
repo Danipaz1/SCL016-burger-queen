@@ -41,7 +41,7 @@ const card = () => {
                   </Link>
 
               </div>
-              <a className="list-group-item list-group-item-action flex-column align-items-start">
+              <a className="list-group-item list-group-item-action flex-column align-items-center">
                 <fieldset className="form-group">
                 <div className="btn-group-vertical">
                   <Switch>
