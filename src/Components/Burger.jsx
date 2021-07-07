@@ -1,12 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Menu} from '../Menu.json'
 import {Link} from 'react-router-dom'
 import Order from './Order'
 
+const Burger = (props) => {
 
-const Burger = () => {
-
-    const [food, setFood] = React.useState(Menu)
+    const [food, setFood] = useState(Menu)
     //console.log(food)
 
     React.useEffect(() => {
@@ -18,8 +17,9 @@ const Burger = () => {
 
     let burgerFood = food.filter(item => item.type === "Hamburguesas")
 
-    function burgerBtnFood() {
-          console.log('click')
+    function burgerBtnFood(name, price) {
+        props.burgerTypeProp(name);
+        props.burgerPriceProp(price);
     }
 
     return ( 
@@ -28,12 +28,12 @@ const Burger = () => {
             <ul>
                 {
                 burgerFood.map((item,i)=> (
-                    
+                     
                     <li key={i}>
-                        <button className = "burgers" style={{height:400, width: 300}} onClick = {() => burgerBtnFood()}>
+                        <button className = "burgers" style={{height:400, width: 300}} onClick = {() => burgerBtnFood(item.name, item.price)}>
                         {<img src = {item.images} style={{height:200, width: 250}}/>}
                           <p><b>{item.name}</b></p>
-                          <p1><i>{item.description}</i></p1>
+                          <p className="descriptionFood"><i>{item.description}</i></p>
                           <p>${item.price}</p>
                         </button>
                     </li>  

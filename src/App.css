@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-
+ 
 .App {
   /*text-align: center;*/
   display: flex;
@@ -95,7 +95,7 @@ p {
   font-size: 25px;
 }
 
-p1 {
+.descriptionFood {
   font-size: 15px;
 }
 }

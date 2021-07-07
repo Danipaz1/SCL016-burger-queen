@@ -26,12 +26,12 @@ const Drinks = () => {
         <div>
             <ul>
                 {
-                drinksFood.map((item,i)=> (
+                drinksFood.map((item,i)=> ( 
                        <li key={i}> 
                        <button className = "drinks" onClick = {() => drinkBtnFood()}>
                         {<img src = {item.images} style={{height:200, width: 200}}/>}
                         <p><b>{item.name}</b></p>
-                        <p1><i>{item.description}</i></p1>
+                        <p className = "descriptionFood"><i>{item.description}</i></p>
                         <p>${item.price}</p>
                         
                         </button>
