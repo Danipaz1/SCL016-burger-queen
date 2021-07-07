@@ -1,10 +1,10 @@
 import React from 'react'
 import {Menu} from '../Menu.json'
 import {Link} from 'react-router-dom'
-//let arrayMenu = require('./Menu.json');
+import Order from './Order'
+
 
 const Burger = () => {
-
 
     const [food, setFood] = React.useState(Menu)
     //console.log(food)
