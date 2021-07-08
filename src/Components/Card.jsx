@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-//import List from './List.jsx';
 import Burger from './Burger'
 import Snack from './Snack'
 import Drinks from './Drinks'
-//import Order from './Order'
+
 
 
 import {
@@ -13,26 +12,79 @@ import {
   Link
 } from "react-router-dom";
 
-
+/*----------------------------------- Estado de comidas, precio individual y total-------------------------------------------*/ 
 const Card = () => {
-
+/* Estado de hamburguesas */
 const [burgerTypeState, setBurgerTypeState] = useState();
 const [burgerPriceState, setBurgerPriceState] = useState();
+
+/* Estado de bebidas */
+const [drinkTypeState, setDrinkTypeState] = useState();
+const [drinkPriceState, setDrinkPriceState] = useState();
+
+/* Estado de acompañamientos */
+const [snackTypeState, setSnackTypeState] = useState();
+const [snackPriceState, setSnackcPriceState] = useState();
+
+/* Comanda con precios de productos y total */
 const [productList, setProductList] = useState([]);
-const [total, setTotal] = useState(0);
+const [totalList, setTotalList] = useState([]);
+const [finalPrice, setFinalPrice] = useState(0);
 
-/*useEffect(() => {
-  if (burgerTypeState != undefined && burgerPriceState != undefined) {
-    productList(burgerTypeState);
-    setTotal(total + burgerPriceState);
-    console.log(total);
+/*------------------------------------------ Obtener y cambiar estados de comidas --------------------------------------------*/
+
+/* Hamburguesas = burgers */ 
+
+useEffect(() => {
+  if (burgerTypeState != undefined) {
+    productList.push(burgerTypeState);
+    console.log(productList);
   }
-}, [])*/
 
+  if (burgerPriceState != undefined) {
+    totalList.push(burgerPriceState);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    setFinalPrice(totalList.reduce(reducer));
+    console.log(finalPrice);
+    console.log(totalList);
+  }
+}, [burgerTypeState, burgerPriceState]);
 
-const getTotal = () => {
-  return "suma de precios";
-}
+/* Bebidas = drinks */
+
+useEffect(() => {
+  if (drinkTypeState != undefined) {
+    productList.push(drinkTypeState);
+    console.log(productList);
+  }
+
+  if (drinkPriceState != undefined) {
+    totalList.push(drinkPriceState);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    setFinalPrice(totalList.reduce(reducer));
+    console.log(finalPrice);
+    console.log(totalList);
+  }
+}, [drinkTypeState, drinkPriceState]);
+
+/* Acompañamientos = snack */ 
+
+useEffect(() => {
+  if (snackTypeState != undefined) {
+    productList.push(snackTypeState);
+    console.log(productList);
+  }
+
+  if (snackPriceState != undefined) {
+    totalList.push(snackPriceState);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    setFinalPrice(totalList.reduce(reducer));
+    console.log(finalPrice);
+    console.log(totalList);
+  }
+}, [snackTypeState, snackPriceState]);
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 
     return (
      
@@ -67,10 +119,10 @@ const getTotal = () => {
                       <Burger burgerTypeProp={setBurgerTypeState} burgerPriceProp={setBurgerPriceState} />
                     </Route>
                     <Route path='/Acompañamiento'>
-                    <Snack/>
+                    <Snack snackTypeProp={setSnackTypeState} snackPriceProp={setSnackcPriceState} />
                     </Route>
                     <Route path='/Bebidas'>
-                      <Drinks/>
+                      <Drinks drinkTypeProp={setDrinkTypeState} drinkPriceProp={setDrinkPriceState} />
                     </Route>
                   </Switch>
 
@@ -90,12 +142,25 @@ const getTotal = () => {
               <div className="card-header">Orden</div>
               </div>
               <a className="list-group-item list-group-item-action flex-column align-items-start">
-                <ul >
-    
-                  <li>{burgerTypeState} = ${burgerPriceState}</li>
-                   
-                </ul>
-                <p className="mb-1">TOTAL {total}</p>
+                <div className="d-flex w-100 justify-content-between">
+                  <h5 className="mb-1">Items</h5>
+                  <small className="text-muted">
+
+                  <ul>
+                        {
+                        productList.map((item,i)=> (
+                            
+                            <li key={i}>              
+                                  <p>{`${item} $${totalList[i]}`}</p>
+                            </li>  
+                          
+                            ))
+                        }          
+                  </ul>
+
+                  </small>
+                </div>
+                <p className="mb-1">TOTAL ${finalPrice}</p>
                 <small className="text-muted">{}</small>
               </a>
               <div className="form-group">
