@@ -23,11 +23,12 @@ const [total, setTotal] = useState(0);
 
 /*useEffect(() => {
   if (burgerTypeState != undefined && burgerPriceState != undefined) {
-    productList.push(burgerTypeState);
+    productList(burgerTypeState);
     setTotal(total + burgerPriceState);
     console.log(total);
   }
-});*/
+}, [])*/
+
 
 const getTotal = () => {
   return "suma de precios";
@@ -81,6 +82,7 @@ const getTotal = () => {
         </div>
         
         {/* TARJETA COMANDA */}
+
         <div className='col-md-4'>
           <div className='cardTicket'>
             <div className="list-group">
@@ -88,10 +90,11 @@ const getTotal = () => {
               <div className="card-header">Orden</div>
               </div>
               <a className="list-group-item list-group-item-action flex-column align-items-start">
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">List group item heading</h5>
-                  <small className="text-muted">NAMEEEEE {burgerTypeState} {burgerPriceState} {productList}</small>
-                </div>
+                <ul >
+    
+                  <li>{burgerTypeState} = ${burgerPriceState}</li>
+                   
+                </ul>
                 <p className="mb-1">TOTAL {total}</p>
                 <small className="text-muted">{}</small>
               </a>
