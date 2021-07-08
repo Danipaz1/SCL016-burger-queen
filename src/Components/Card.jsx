@@ -15,12 +15,26 @@ import {
 
 
 const Card = () => {
-
+/* Estado de hamburguesas */
 const [burgerTypeState, setBurgerTypeState] = useState();
 const [burgerPriceState, setBurgerPriceState] = useState();
+
+/* Estado de bebidas */
+const [drinkTypeState, setDrinkTypeState] = useState();
+const [drinkPriceState, setDrinkPriceState] = useState();
+
+/* Estado de acompañamientos */
+const [snackTypeState, setSnackTypeState] = useState();
+const [snackPriceState, setSnackcPriceState] = useState();
+
+/* Comanda con precios de productos y total */
 const [productList, setProductList] = useState([]);
 const [totalList, setTotalList] = useState([]);
 const [finalPrice, setFinalPrice] = useState(0);
+
+/*------------------------------------------ Obtener y cambiar estados de comidas --------------------------------------------*/
+
+/* Hamburguesas */ 
 
 useEffect(() => {
   if (burgerTypeState != undefined) {
@@ -35,11 +49,43 @@ useEffect(() => {
     console.log(finalPrice);
     console.log(totalList);
   }
-
-  /*if(snakTypeState != undefined && snakPriceState != undefined) {
-    productList.push(snakTypeState);
-  }*/
 }, [burgerTypeState, burgerPriceState]);
+
+/* Bebidas */
+
+useEffect(() => {
+  if (drinkTypeState != undefined) {
+    productList.push(drinkTypeState);
+    console.log(productList);
+  }
+
+  if (drinkPriceState != undefined) {
+    totalList.push(drinkPriceState);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    setFinalPrice(totalList.reduce(reducer));
+    console.log(finalPrice);
+    console.log(totalList);
+  }
+}, [drinkTypeState, drinkPriceState]);
+
+/* Acompañamientos */ 
+
+useEffect(() => {
+  if (snackTypeState != undefined) {
+    productList.push(snackTypeState);
+    console.log(productList);
+  }
+
+  if (snackPriceState != undefined) {
+    totalList.push(snackPriceState);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    setFinalPrice(totalList.reduce(reducer));
+    console.log(finalPrice);
+    console.log(totalList);
+  }
+}, [snackTypeState, snackPriceState]);
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 
     return (
      
@@ -74,10 +120,10 @@ useEffect(() => {
                       <Burger burgerTypeProp={setBurgerTypeState} burgerPriceProp={setBurgerPriceState} />
                     </Route>
                     <Route path='/Acompañamiento'>
-                    <Snack/>
+                    <Snack snackTypeProp={setSnackTypeState} snackPriceProp={setSnackcPriceState} />
                     </Route>
                     <Route path='/Bebidas'>
-                      <Drinks/>
+                      <Drinks drinkTypeProp={setDrinkTypeState} drinkPriceProp={setDrinkPriceState} />
                     </Route>
                   </Switch>
 
@@ -114,7 +160,7 @@ useEffect(() => {
 
                   </small>
                 </div>
-                <p className="mb-1">TOTAL {finalPrice}</p>
+                <p className="mb-1">TOTAL ${finalPrice}</p>
                 <small className="text-muted">{}</small>
               </a>
               <div className="form-group">

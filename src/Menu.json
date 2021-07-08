@@ -24,7 +24,7 @@
                   "name": "Papas Fritas",
                   "type": "Acompañamiento",
                   "description": "Papas seleccionadas, rebozadas en harina y fritas en aceite de coco.",
-                  "price": "5"
+                  "price": 5
               },
               {
                   "id": "4",
@@ -32,14 +32,14 @@
                   "name": "Empanadas de queso",
                   "type": "Acompañamiento",
                   "description": "Sabrosas empanadas rellenas de queso chanco y mantecoso.",
-                  "price": "7"
+                  "price": 7
               },
               {    "id": "5",
                   "images": "http://pngimg.com/uploads/sprite/sprite_PNG98768.png",
                   "name": "Sprite",
                   "type": "Bebidas",
                   "description": "350 cc.",
-                  "price": "3"
+                  "price": 3
               },
               {
                   "id": "6",
@@ -47,7 +47,7 @@
                   "name": "Coca Cola",
                   "type": "Bebidas",
                   "description":"350 cc.",
-                  "price": "3"
+                  "price": 3
               },
               {
                   "id": "7",
@@ -55,7 +55,7 @@
                   "name": "Cerveza",
                   "type": "Bebidas",
                   "description": "473 cc.",
-                  "price": "4"
+                  "price": 4
               },
               {
                   "id": "8",
@@ -63,7 +63,7 @@
                   "name": "Jugo",
                   "type": "Bebidas",
                   "description": "Jugos naturales y nectar.",
-                  "price": "2"
+                  "price": 2
               }
           ]
         }
