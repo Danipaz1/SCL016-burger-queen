@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-//import List from './List.jsx';
 import Burger from './Burger'
 import Snack from './Snack'
 import Drinks from './Drinks'
-//import Order from './Order'
+
 
 
 import {
@@ -13,7 +12,7 @@ import {
   Link
 } from "react-router-dom";
 
-
+/*----------------------------------- Estado de comidas, precio individual y total-------------------------------------------*/ 
 const Card = () => {
 /* Estado de hamburguesas */
 const [burgerTypeState, setBurgerTypeState] = useState();
@@ -34,7 +33,7 @@ const [finalPrice, setFinalPrice] = useState(0);
 
 /*------------------------------------------ Obtener y cambiar estados de comidas --------------------------------------------*/
 
-/* Hamburguesas */ 
+/* Hamburguesas = burgers */ 
 
 useEffect(() => {
   if (burgerTypeState != undefined) {
@@ -51,7 +50,7 @@ useEffect(() => {
   }
 }, [burgerTypeState, burgerPriceState]);
 
-/* Bebidas */
+/* Bebidas = drinks */
 
 useEffect(() => {
   if (drinkTypeState != undefined) {
@@ -68,7 +67,7 @@ useEffect(() => {
   }
 }, [drinkTypeState, drinkPriceState]);
 
-/* Acompañamientos */ 
+/* Acompañamientos = snack */ 
 
 useEffect(() => {
   if (snackTypeState != undefined) {
@@ -151,7 +150,7 @@ useEffect(() => {
                         productList.map((item,i)=> (
                             
                             <li key={i}>              
-                                  <p>{`${item} ${totalList[i]}`}</p>
+                                  <p>{`${item} $${totalList[i]}`}</p>
                             </li>  
                           
                             ))
